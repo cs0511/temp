@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>the5fire-backbone-router</title>
+</head>
+<body>
+    <a href="#/posts/120">Post 120</a>
+<a href="#/download/user/images/hey.gif">download gif</a>
+<a href="#/dashboard/graph">Load Route/Action View</a>
+</body>
+<script src="jquery-2.0.1.js"></script>
+    <script src="underscore.js"></script>
+    <script src="backbone.js"></script>
+    <script>
+    (function ($) {
+        var AppRouter = Backbone.Router.extend({
+            routes: {
+                "*actions" : "defaultRoute"
+            },
+            defaultRoute : function(actions){
+                alert(actions);
+            }
+        });
+        
+        var app_router = new AppRouter;
+        
+        Backbone.history.start();
+    })(jQuery);
+    </script>
+    
+</html>
