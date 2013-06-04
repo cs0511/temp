@@ -25,6 +25,13 @@
         var app_router = new AppRouter;
         
         Backbone.history.start();
+        
+        SearchView = Backbone.View.extend({
+        	initialize:	function(){
+        		alert('init a SearchView');
+        	}});
+        	
+        var searchView = new SearchView();
     })(jQuery);
     </script>
     
