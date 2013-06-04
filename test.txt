@@ -1,9 +1,54 @@
-Hi wanghui
+=@page_header = ""
+- content_for(:content) do
+  #linear_table{:data => @reportData}
+    %table
 
-    Thank you for your arrangement for my trip.
+- content_for(:toolbar) do
+  
 
-    From June 10 to June 12(next Monday to Wednesday) is vacation for Dragon Boat Festival in China. And I want to see my nephew in Shanghai. Could I leave Xi'an for Shanghai in June 10? There is two days left in the hotel, could I use it for renting a house when I come back?
+  .exchange-report-detail
+  
+    .dimensions.column
+      .title
+        Dimensions
+      .values
+    .metrics.column
+      .title
+        Metrics
+      .values
+        
+    .actions.column
+      %button#export
+        Export
 
-    Chinese: 下周一到周三(6.10-6.12)公司端午节放假，我想下周一去上海看望我的外甥，能否预定下周一去上海的机票？这样宾馆的预定会剩余两天，我想在九月十四日(周六)从美国回来的时候租房时暂住。
+- content_for(:inline_scripts) do
+  :coffeescript
+    $ () ->
+      $("#header .page-name").replaceWith("""
+                                          <div class='exchange-report-info'>
+                                            <div class='report-page-name'>Exchange Report</div>
+                                            <div class='report-name-info'>
+                                              <span class='report-name'>
+                                                Unsaved Report - 
+                                                <span class='report-close'>
+                                                  Preview
+                                                  <a href='#' onClick='top.window.close();' id='close'>Close</a>
+                                                </span>
+                                              </span>
 
-Best Regards
+                                            </div>
+                                          </div>
+                                          """)
+      $(document).off('click', '#close')
+                 .on('click', '#close', (e) ->
+                   window.close()
+                 )
+                 
+      reportData = $('#linear_table').data()
+      linearView = new ReportingApplication.Views.ReportDataView
+        el: '#linear_table'
+        data: reportData
+      linearView.render()
+
+
+
