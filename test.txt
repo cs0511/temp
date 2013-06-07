@@ -1,54 +1,64 @@
-=@page_header = ""
-- content_for(:content) do
-  #linear_table{:data => @reportData}
-    %table
-
-- content_for(:toolbar) do
-  
-
-  .exchange-report-detail
-  
-    .dimensions.column
-      .title
-        Dimensions
-      .values
-    .metrics.column
-      .title
-        Metrics
-      .values
-        
-    .actions.column
-      %button#export
-        Export
-
-- content_for(:inline_scripts) do
-  :coffeescript
-    $ () ->
-      $("#header .page-name").replaceWith("""
-                                          <div class='exchange-report-info'>
-                                            <div class='report-page-name'>Exchange Report</div>
-                                            <div class='report-name-info'>
-                                              <span class='report-name'>
-                                                Unsaved Report - 
-                                                <span class='report-close'>
-                                                  Preview
-                                                  <a href='#' onClick='top.window.close();' id='close'>Close</a>
-                                                </span>
-                                              </span>
-
-                                            </div>
-                                          </div>
-                                          """)
-      $(document).off('click', '#close')
-                 .on('click', '#close', (e) ->
-                   window.close()
-                 )
-                 
-      reportData = $('#linear_table').data()
-      linearView = new ReportingApplication.Views.ReportDataView
-        el: '#linear_table'
-        data: reportData
-      linearView.render()
-
+{"config"=>
+	"{\"dimensions\":
+		[{\"id\":\"BUYER_ID\",\"text\":\"BUYER ID\",\"locked\":true,\"rc\":\"buyerIds_row\"},
+		 {\"id\":\"BUYER\",\"text\":\"BUYER\",\"locked\":true,\"rc\":\"buyerIds_row\"},
+		 {\"id\":\"ORDER_NAME\",\"text\":\"ORDER NAME\",\"locked\":true,\"rc\":\"orderIds_row\"},
+		 {\"id\":\"ORDER_ID\",\"text\":\"ORDER ID\",\"locked\":true,\"rc\":\"orderIds_row\"},
+		 {\"id\":\"CAMPAIGN_ID\",\"text\":\"CAMPAIGN ID\",\"locked\":true,\"rc\":\"campaignIds_row\"},
+		 {\"id\":\"CAMPAIGN_NAME\",\"text\":\"CAMPAIGN NAME\",\"locked\":true,\"rc\":\"campaignIds_row\"},
+		 {\"id\":\"DATA_PROVIDER\",\"text\":\"DATA PROVIDER\",\"locked\":true,\"rc\":\"providerIds_row\"},
+		 {\"id\":\"CATEGORY\",\"text\":\"CATEGORY\",\"locked\":true,\"rc\":\"CATEGORY_row\"},
+		 {\"id\":\"CATEGORY_ID\",\"text\":\"CATEGORY ID\",\"locked\":true,\"rc\":\"CATEGORY_ID_row\"},
+		 {\"id\":\"CATEGORY_NAME\",\"text\":\"CATEGORY NAME\",\"locked\":true,\"rc\":\"CATEGORY_NAME_row\"},
+		 {\"id\":\"DATA_PROVIDER_SITE_ID\",\"text\":\"DATA PROVIDER SITE ID\",\"locked\":true,\"rc\":\"DATA_PROVIDER_SITE_ID_row\"},
+		 {\"id\":\"DATA_PROVIDER_SITE\",\"text\":\"DATA PROVIDER SITE\",\"locked\":true,\"rc\":\"DATA_PROVIDER_SITE_ID_row\"},
+		 {\"id\":\"TRANSACTION_PROVIDER\",\"text\":\"TRANSACTION PROVIDER\",\"locked\":true,\"rc\":\"transactionProviderId_row\"},
+		 {\"id\":\"TRANSACTION_PROVIDER_SITE_ID\",\"text\":\"TRANSACTION PROVIDER SITE ID\",\"locked\":true,\"rc\":\"TRANSACTION_PROVIDER_SITE_ID_row\"},
+		 {\"id\":\"TRANSACTION_PROVIDER_SITE\",\"text\":\"TRANSACTION PROVIDER SITE\",\"locked\":true,\"rc\":\"TRANSACTION_PROVIDER_SITE_ID_row\"},
+		 {\"id\":\"PIXEL_URL\",\"text\":\"PIXEL URL\",\"locked\":true,\"rc\":\"PIXEL_URL_row\"},
+		 {\"id\":\"MAX_BID\",\"text\":\"MAX BID\",\"locked\":true,\"rc\":\"MAX_BID_row\"},
+		 {\"id\":\"PMG_CONTACT\",\"text\":\"PMG CONTACT\",\"locked\":true,\"rc\":\"PMG_CONTACT_row\"},
+		 {\"id\":\"DATA_RECENCY\",\"text\":\"DATA RECENCY\",\"locked\":true,\"rc\":\"DATA_RECENCY_row\"},
+		 {\"id\":\"CURRENT_STATUS\",\"text\":\"CURRENT STATUS\",\"locked\":true,\"rc\":\"CURRENT_STATUS_row\"},
+		 {\"id\":\"CAMPAIGN_COUNTRY\",\"text\":\"CAMPAIGN COUNTRY\",\"locked\":true,\"rc\":\"CAMPAIGN_COUNTRY_row\"},
+		 {\"id\":\"ALWAYS_ON\",\"text\":\"ALWAYS ON\",\"locked\":true,\"rc\":\"ALWAYS_ON_row\"},
+		 {\"id\":\"SSG_CONTACT\",\"text\":\"SSG CONTACT\",\"locked\":true,\"rc\":\"SSG_CONTACT_row\"},
+		 {\"id\":\"VERTICAL\",\"text\":\"VERTICAL\",\"locked\":true,\"rc\":\"VERTICAL_row\"},
+		 {\"id\":\"SALES_PERSON\",\"text\":\"SALES PERSON\",\"locked\":true,\"rc\":\"SALES_PERSON_row\"},
+		 {\"id\":\"BUYER_TYPE\",\"text\":\"BUYER TYPE\",\"locked\":true,\"rc\":\"buyerType_row\"},
+		 {\"id\":\"BUYER_TIER\",\"text\":\"BUYER TIER\",\"locked\":true,\"rc\":\"buyerTier_row\"},
+		 {\"id\":\"ORDER_TYPE\",\"text\":\"ORDER TYPE\",\"locked\":true,\"rc\":\"orderType_row\"},
+		 {\"id\":\"CAMPAIGN_TYPE\",\"text\":\"CAMPAIGN TYPE\",\"locked\":true,\"rc\":\"campaignType_row\"},
+		 {\"id\":\"PACING_TYPE\",\"text\":\"PACING TYPE\",\"locked\":true,\"rc\":\"pacingType_row\"},
+		 {\"id\":\"DATA_SOURCE\",\"text\":\"DATA SOURCE\",\"locked\":true,\"rc\":\"dataSourceTypes_row\"}],
+	\"metrics\":[{\"id\":\"COST_PER_1000_STAMPS\",\"text\":\"COST PER 1000 STAMPS\",\"locked\":true},
+				 {\"id\":\"AVERAGE_RANK\",\"text\":\"AVERAGE RANK\",\"locked\":true},
+				 {\"id\":\"COST_PER_STAMP\",\"text\":\"COST PER STAMP\",\"locked\":true},
+				 {\"id\":\"ELIGIBLE_POPULATION\",\"text\":\"ELIGIBLE POPULATION\",\"locked\":true},
+				 {\"id\":\"SPEND\",\"text\":\"SPEND\",\"locked\":true},
+				 {\"id\":\"STAMPS\",\"text\":\"STAMPS\",\"locked\":true},
+				 {\"id\":\"PIXEL_CALLS\",\"text\":\"PIXEL CALLS\",\"locked\":true},
+				 {\"id\":\"UNADJUSTED_COST_PER_STAMP\",\"text\":\"UNADJUSTED COST PER STAMP\",\"locked\":true},
+				 {\"id\":\"UNADJUSTED_COST_PER_1000_STAMPS\",\"text\":\"UNADJUSTED COST PER 1000 STAMPS\",\"locked\":true},
+				 {\"id\":\"UNIQUES\",\"text\":\"UNIQUES\",\"locked\":true},
+				 {\"id\":\"UNADJUSTED_SPEND\",\"text\":\"UNADJUSTED SPEND\",\"locked\":true}],
+	\"filters\":{\"buyerIds\":[{\"id\":411,\"text\":\"22 Squared - Floridas Natural OJ\"},
+								{\"id\":547,\"text\":\"24/7 Real Media Network (WPP)\"},
+								{\"id\":410,\"text\":\"22 Squared/SE Toyota\"},
+								{\"id\":447,\"text\":\"33Across\"}],
+				\"campaignIds\":[{\"id\":36733,\"text\":\"\\t20129_YuMe_MassMutual Flight 2_Aug BT_Sep 1, 2013_Nov 30,\"},
+								 {\"id\":10657,\"text\":\" \\t United Airlines - Mileage Plus - LifeStage Plus - In Market Air Departure - C01\"}],
+				\"providerIds\":[{\"id\":1012,\"text\":\"Active Network\"},
+								 {\"id\":105,\"text\":\"Acxiom Matching\"}],
+				\"buyerType\":\"NETWORK\",
+				\"buyerTier\":\"TIER_1\",
+				\"orderType\":\"NORMAL\",
+				\"campaignType\":\"INTERNAL\",
+				\"pacingType\":\"NO_RESTRICTION\",
+				\"dataSourceTypes\":\"RETARGETED\"},
+	\"dateRange\":\"MONTH\"}", 
+	"controller"=>"reporting_ui/admin_exchange_reports", 
+	"action"=>"prepare"}
+		 
 
 
