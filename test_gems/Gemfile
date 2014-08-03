@@ -47,3 +47,6 @@ gem 'devise'
 # https://github.com/haml/haml
 gem 'haml'
 
+# https://github.com/RolifyCommunity/rolify
+gem "rolify"
+
