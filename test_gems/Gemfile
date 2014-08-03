@@ -1,5 +1,6 @@
 source 'https://ruby.taobao.org'
 
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -38,6 +39,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
 # https://github.com/ryanb/cancan/
 gem 'cancan'
 
@@ -49,6 +51,9 @@ gem 'paper_trail', '~> 3.0.3'
 
 # https://github.com/haml/haml
 gem 'haml'
+
+# https://github.com/sferik/rails_admin
+gem 'rails_admin'
 
 # https://github.com/RolifyCommunity/rolify
 gem "rolify"
