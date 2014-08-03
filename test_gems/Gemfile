@@ -38,7 +38,12 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# https://github.com/ryanb/cancan/
+gem 'cancan'
+
+# https://github.com/plataformatec/devise
 gem 'devise'
 
-gem 'cancan'
+# https://github.com/haml/haml
+gem 'haml'
 
