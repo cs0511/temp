@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
+# Customize gems, sort by name
 # https://github.com/ryanb/cancan/
 gem 'cancan'
 
@@ -57,6 +57,12 @@ gem 'rails_admin'
 
 # https://github.com/RolifyCommunity/rolify
 gem "rolify"
+
+# bootstrap
+# https://github.com/seyhunak/twitter-bootstrap-rails/tree/bootstrap3
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 
 
