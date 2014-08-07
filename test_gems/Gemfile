@@ -52,6 +52,9 @@ gem 'paper_trail', '~> 3.0.3'
 # https://github.com/haml/haml
 gem 'haml'
 
+# https://github.com/indirect/haml-rails
+gem "haml-rails"
+
 # https://github.com/sferik/rails_admin
 gem 'rails_admin'
 
