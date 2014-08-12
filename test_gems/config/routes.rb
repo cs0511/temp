@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :tutorial
+  resources :checkout
   # Example resource route with options:
   #   resources :products do
   #     member do
